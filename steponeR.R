@@ -74,7 +74,8 @@ steponeR <- function(files, delim=",", target.ratios, fluor.norm,
     dat[, grep("Sample", colnames(dat), value=T)] <- as.character(dat[, grep("Sample", colnames(dat), value=T)]) # Convert sample names to character using regex
     dat
   })
-  data0 <- rbind.fill(data0)
+  #data0 <- rbind.fill(data0)
+  data0 <- bind_rows(data0)
   # Change column name C. to CT
   colnames(data0) <- sub(x=colnames(data0), pattern="C.$", replacement="CT")
   # Check and remove NTC wells
